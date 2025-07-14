@@ -1,0 +1,4 @@
+![735 Asteroid Collision Topics Companies Q Hint Med...](Exported%20image%2020250528103719-0.png)   
+![1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20...](Exported%20image%2020250528103720-1.png)
+
+Not really any coding concepts here. The key trick to spot was the idea that when iterating through the array from left to right, only asteroids[i] which were negative would have to be handled gracefully. Any asteroid[i] \> 0, would continue on its course to the right and can be ignored. Using the stack data structure, we keep adding to the top of the stack and the moment we encounter a negative asteroid, we just keep comparing to the top element of the stack and popping or ignoring the negative asteroid. The fact that there is no 0 element in the array is used gracefully.

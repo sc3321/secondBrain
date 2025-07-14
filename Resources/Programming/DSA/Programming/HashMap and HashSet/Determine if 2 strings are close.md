@@ -1,0 +1,9 @@
+![1657 Determine if Two Strings Are Close Q Hint Top...](Exported%20image%2020250528103625-0.png)
+
+![1 class Solution public 2 3 bool closeStringsstrin...](Exported%20image%2020250528103626-1.png)
+
+Good question which hinges on spotting a trick. It is rather more annoying to do without the trick. Without a rigorous mathematic proof, it can be seen pretty self evidently that:￼  
+Essentially operation 1 lets you rearrange the order of the characters to any order you would like.￼Operation 2 allows you to then change the relative frequencies of each of the characters to the relative frequency of any of the other characters.￼￼When working this problem on paper, it makes sense to actually do operation 2 first.￼￼What can be spotted therefore is the trick of basically doing a frequency count of all the characters in word 1 and word 2 and putting them in respective vectors. The line: freq1[ch - 'a'] is a clever way to access the index of the vector since we are looking for alphabet characters the character 'a' will have ASCII of like 97 so if an 'a' exists in word 1: 'a' - 'a' = 0 which is index 0. Similarly for 'b' resulting in index 1 and so on.￼￼The next check is just to make sure that every character that exists in word1 APPEARS in word 2. We cannot generate new characters. This is where a set could be used but introduces mem complexity.￼￼If we pass that check, then by sorting the 2 frequency vectors respectively we can do that check to see if there are the same relative character frequencies.
+ 
+Best illustrated with an example:
+    ![String 1 F requency 2 2 aabaacczp in stringl b1 se...](Exported%20image%2020250528103626-2.png)

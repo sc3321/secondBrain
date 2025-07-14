@@ -1,0 +1,9 @@
+![Exported image](Exported%20image%2020250528103525-0.png)
+
+![1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20...](Exported%20image%2020250528103525-1.png)
+
+Obviously brute force solution exists but is O(n^2) and incredibly inefficient. So inefficient that Leetcode will crash on attempt of solution.￼￼The main thing to spot is a specific use of the two pointers. It is difficult to describe the logic in words but here is the best attempt:
+
+We begin by initialising the left pointer to 0 and the right pointer all the way to the right hand side of the vector.  
+￼We calculate the volume and set that as the initial max volume.  
+￼We then ask which value is SMALLER, height[left] or height[right]. We then increment height[left] if it is smaller or decrement height[right] if it is smaller.￼￼The reasoning for the step above is simple. Since the lower height is essentially the bottleneck to the volume calculation. If the left height is say 9 and the right height is 40000000 and they are 5 spaces apart, the max volume that can be generated from that point forth will ALWAYS be 45. The 400000000 is capped at a height of 9 to form the container size. Therefore this is the reason for changing(incrementing or decrementing) the lower height. It is because for the given separation between the left and right pointer we have calculated the MAX volume possible since the distance (corresponding to base length of the container) will only get smaller as we increment or decrement the left or right pointer respectively so any subsequent volume calculations are capped at this maximum. Changing the lower base pointer allows us the possibility of finding a new- taller bottleneck that will correspond to an even bigger volume.￼￼This was a nuanced step to spot, but I think I could and should have been able to do that.

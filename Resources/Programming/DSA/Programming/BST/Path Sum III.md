@@ -1,0 +1,7 @@
+![437 Path Sum Ill Topics Companies Medium Solved Gi...](Exported%20image%2020250528103607-0.png)
+
+![12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28...](Exported%20image%2020250528103611-1.png)
+
+This is an interesting problem which requires a double recursion. We are looking at the root first and then traversing ALL possible paths to see if the path total can be met from the root. This is the need to do a DFS.￼￼We then do a DFS from EVERY single node in the whole tree to see if the path total can be met. Remember, due to negative numbers in the tree, we can meet the path total multiple times across one traversal- even in the same direction. Consider meeting a total of 3. The following node combinations are both applicable.￼￼1-\>1-\>1￼1-\>1-\>1-\>1-\>(-1)
+ 
+This is why in the DFS function, even if we meet the total or not, we keep traversing all the possible paths continuously aggregating the currsum.￼￼In the path sum which is called recursively, we perform the dfs on each node then call pathsum on the 2 children. ￼￼The main pitfall and something to watch out for is during these recursive calls with an aggregating value to use a long long type as this total can become very very large causing buffer overflows. We can either use long long types or decrement from a target value instead of incrementing another variable and making a comparison.

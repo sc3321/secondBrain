@@ -1,0 +1,6 @@
+![199 Binary Tree Right Side View Topics Companies M...](Exported%20image%2020250528103544-0.png)
+
+![12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28...](Exported%20image%2020250528103545-1.png)
+
+This is a very interesting problem where the use of queue is essential for BFS. The queue is what allows us to effectively keep track of the "level" which we are traversing at any given point. ￼￼Here is the loop logic:￼￼1) Add the root node to the queue.￼2) Check the size of the queue and iterate through the queue.￼3) If the current node is at the end of the queue we can be sure that it is the right most for that level. If this is the case, then add the node value to the result vector.￼4) At every iteration, including the the final node, add the left and right children if they exist in that order respectively to the queue.￼5)pop the node from the queue.￼  
+Since we are NOT dynamically calculating the size of the queue, when the for loop finishes, and if the next iteration of the while loop triggers, we are now at the next sub-level of the tree.

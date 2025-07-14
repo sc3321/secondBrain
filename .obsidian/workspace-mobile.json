@@ -11,10 +11,12 @@
             "id": "19b8bef0bff10e49",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "pdf",
+              "state": {
+                "file": "Projects/Operations Research/HillierLieberman9thEdition.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "HillierLieberman9thEdition"
             }
           }
         ]
@@ -94,6 +96,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Resources/ComputerArchitectureResearch/Limoncello.md.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -112,6 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Resources/ComputerArchitectureResearch/Limoncello.md.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -125,6 +129,7 @@
         "state": {
           "type": "outline",
           "state": {
+            "file": "Resources/ComputerArchitectureResearch/Limoncello.md.md",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -138,6 +143,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-importer:Open Importer": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -148,6 +154,16 @@
   },
   "active": "19b8bef0bff10e49",
   "lastOpenFiles": [
+    "Resources/Year 3",
+    "Resources/ComputerArchitectureResearch/Limoncello.md.md",
+    "Resources/ComputerArchitectureResearch/Limoncello.pdf",
+    "Resources/ComputerArchitectureResearch/Alternate_Path_-op_Cache_Prefetching.pdf",
+    "Resources/ComputerArchitectureResearch/The_Maya_Cache_A_Storage-efficient_and_Secure_Fully-associative_Last-level_Cache.pdf",
+    "Resources/ComputerArchitectureResearch",
+    "Resources",
+    "Archive",
+    "Projects",
+    "Areas",
     "Untitled"
   ]
 }
