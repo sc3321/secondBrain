@@ -1,1 +1,47 @@
-.obsidian/plugins/*/node_modules
+############################################################
+# 🍏  macOS & iCloud ephemera
+############################################################
+# Finder & Spotlight
+.DS_Store
+.AppleDouble        # Resource forks on HFS+
+.LSOverride
+.Spotlight-V100
+.fseventsd
+.Trashes
+.VolumeIcon.icns
+.Network Trash Folder
+Icon?               # “Icon\r” files (the ? matches the carriage-return)
+
+# iCloud placeholders (zero-byte stubs)
+*.icloud
+*.icloud~
+
+# Temporary items & cache scratch
+.TemporaryItems
+.apdisk             # AirPort disk image cache
+.localized
+.metadata_never_index
+
+############################################################
+# 🧠 Obsidian vault clutter (tweak as you like)
+############################################################
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/snippets/
+.obsidian/plugins/*/data.json
+
+############################################################
+# ✍️  GoodNotes odds & ends
+############################################################
+*_goodnotes_backup*.zip
+*.gnote
+*.note
+
+############################################################
+# 🛠️  Editor / tool droppings (nano, vim, etc.)
+############################################################
+*~
+*.swp
+*.swo
+# End of file – everything below this line is pure ✨
+
