@@ -3,4 +3,4 @@ Originally built and maintained by Meta, now under the PyTorch Foundation.
 
 
 Related:
-[[Zettels/Nvidia cuBLAS]]
+[[Nvidia cuBLAS]]

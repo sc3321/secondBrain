@@ -1,7 +1,7 @@
 Kernel operations are usually memory bound.
 
 Related
-[[Zettels/GPU]]
+[[GPU]]
 [[Memory bound programs]]
 
 
