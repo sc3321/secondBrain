@@ -1,0 +1,3 @@
+Connectome: This is a modelling technique, available only for very small simple neural anatomies where every single neuron connection is mapped out.
+
+The brain has some evidence for localisation of functions such as sight, sound etc. There is also evidence, done by Dr Goodman that would suggest the opposite. His work with neural networks and varying connectivity between 2 separate modules to identify an image suggest that specialisation only comes into the picture when connectivity is VERY low. This level of disconnectivity is not present in the brain and is evidence against localisation of functions in the brain.
