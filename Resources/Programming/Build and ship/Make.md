@@ -19,12 +19,12 @@ CMake will translate that intent into the correct switches later.
 
 ## 2 · `cmake -S . -B build` ⟶ **Configure + Generate**
 
-|What CMake does (chronological)|Why it gives portability|
-|---|---|
-|Detects a compiler → sets `CMAKE_CXX_COMPILER_ID` (`GNU`, `Clang`, `MSVC` …)|Knows which mapping tables to load.|
-|Loads platform/compiler modules, e.g. `Compiler/GNU.cmake`, `Platform/Windows-GNU.cmake`|These tables say: “`cxx_std_23` ⇒ `-std=c++23` on GCC, `/std:c++23` on MSVC”, “`Threads::Threads` ⇒ `-pthread` on POSIX, nothing on Windows”…|
-|Populates **`CMakeCache.txt`** with all discovered paths, versions, feature tests|Re-running later re-uses the cache, so configure is fast and reproducible.|
-|Writes a low-level build script (your chosen **generator**) into `build/`|On Linux that might be a `Makefile`; with `-G Ninja` it becomes `build.ninja`; on Windows it could be a `.vcxproj`.|
+| What CMake does (chronological)                                                          | Why it gives portability                                                                                                                      |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Detects a compiler → sets `CMAKE_CXX_COMPILER_ID` (`GNU`, `Clang`, `MSVC` …)             | Knows which mapping tables to load.                                                                                                           |
+| Loads platform/compiler modules, e.g. `Compiler/GNU.cmake`, `Platform/Windows-GNU.cmake` | These tables say: “`cxx_std_23` ⇒ `-std=c++23` on GCC, `/std:c++23` on MSVC”, “`Threads::Threads` ⇒ `-pthread` on POSIX, nothing on Windows”… |
+| Populates **`CMakeCache.txt`** with all discovered paths, versions, feature tests        | Re-running later re-uses the cache, so configure is fast and reproducible.                                                                    |
+| Writes a low-level build script (your chosen **generator**) into `build/`                | On Linux that might be a `Makefile`; with `-G Ninja` it becomes `build.ninja`; on Windows it could be a `.vcxproj`.                           |
 
 > **After this step CMake exits.**  
 > The rest of the work is done by the backend it just wrote.
@@ -80,12 +80,12 @@ If you enabled `VERBOSE=1`, you can watch every command line exactly as executed
 
 ## 6 · Where things go wrong & which layer to blame
 
-|Symptom|Layer to inspect|Quick fix|
-|---|---|---|
-|New file not compiled|_CMake configuration_|Re-run configure; ensure file is in `add_library/ add_executable`.|
-|Wrong flag (e.g. `-O0` instead of `-O3`)|_CMake target properties_|Check `target_compile_options` or cache variable; clear `CMakeCache.txt` if stale.|
-|File rebuilds every time|_Backend / timestamps_|Clock skew, or generated header’s timestamp always newer.|
-|“Undefined reference …”|_Link step_|Wrong order in `target_link_libraries`; static libs must follow objects.|
+| Symptom                                  | Layer to inspect          | Quick fix                                                                          |
+| ---------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
+| New file not compiled                    | _CMake configuration_     | Re-run configure; ensure file is in `add_library/ add_executable`.                 |
+| Wrong flag (e.g. `-O0` instead of `-O3`) | _CMake target properties_ | Check `target_compile_options` or cache variable; clear `CMakeCache.txt` if stale. |
+| File rebuilds every time                 | _Backend / timestamps_    | Clock skew, or generated header’s timestamp always newer.                          |
+| “Undefined reference …”                  | _Link step_               | Wrong order in `target_link_libraries`; static libs must follow objects.           |
 
 ---
 

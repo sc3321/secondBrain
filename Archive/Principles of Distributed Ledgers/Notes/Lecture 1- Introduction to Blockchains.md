@@ -1,0 +1,11 @@
+
+- Bitcoin's goal is to create a trust-less, immutable financial system.
+- Some key features:
+	- Immutability & Hashing:
+		Each block contains the hash in its header of the previous block. If any one of the blocks is tampered with, the tamperer would also have to change and solve the hash of all subsequent blocks which is just way too difficult to do. They would effectively have to recreate a fork on the blockchain which is just too much computational work.
+	- Verification & Security of PoW:
+		Applies game theory heuristics to ensure that the entire network is composed of mostly fair and honest agents. Unless an attacker owns > 50% of the entire network's computational power, it is difficult or nigh impossible for them to tamper with the network.
+	- Miner incentives:
+		Miners are the people who solve the PoW problems. Upon completing a PoW problem, it is up for other miners to verify that it is correct. They behave honestly, because they have also worked towards solving the problem and it makes no sense to behave dishonestly as they will be voted out probably? <mark style="background: #FF5582A6;">Ask this on Ed</mark>
+	- UTXO concept:
+		This is the concept of tracking coins and addresses. These are consumed *entirely* and outputted *entirely* by transactions. A Transaction will include input UTXOs, this is obviously seen as giving money to someone else for example. To unlock the transaction and make it valid however, miners will do a verification step to see that this is valid <mark style="background: #ADCCFFA6;">**more details in lecture 2**</mark> New UTXO outputs will be created from this transaction too. There is always a difference between the input/output amounts specified by the payer -> payee and the miner pockets this difference. Say I have access to 5 BTC and I want to pay someone 3 BTC. I will create a transaction with inputs 3.1 BTC and 2 outputs, 3 BTC to my payee and an "undisclosed" 0.1 BTC which the miner will pocket. The larger the difference the faster my transaction will be prioritised.

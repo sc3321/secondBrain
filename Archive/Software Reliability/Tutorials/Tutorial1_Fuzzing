@@ -1,0 +1,102 @@
+
+
+Q1) Why does the fuzzer AFL ship with its own custom C compiler? (In fact it ships with multiple
+different custom C compilers.)
+
+    Because the compiler has to instrument the code such that it can create new program states. AFL works on branch coverage and recording new state transitions as a proxy for new program coverage. The code has to be instrumented to create these states.
+
+Q2) Consider the following code snippet:
+
+    void sum(unsigned *flags) {
+        for (unsigned i = 0; i < 8; i++) {
+            if (flags[i] > 1) {
+                return;
+            }
+        }
+        unsigned accum = 0;
+        for (unsigned i = 0; i < 8; i++) {
+            if (flags[i] == 1) {
+                accum = accum + 1;
+            }
+        }
+        assert(accum != 8);
+    }
+
+Suppose that whenever sum is invoked, the flags argument points to an array of length 8.
+
+    a) How many possible inputs are there to sum, assuming 32-bit unsigned integers?
+
+    ((2^32)^8) = 2^256
+
+    b) For every single element of the 8 element array provided, there is a 1/256 chance that the input is 1. Therefore (1/256)^8 chance that the assertion will fail. 
+
+    c) There is a higher chance, although impossible to quantify without knowledge of the internal workings of the fuzzer, that the coverage guided mutation approach will lead to finding the assertion failure faster. AFL works with random mutations of the code that is coverage guided, so it should hopefully be not long before the fuzzer realises that bit flips around 0 and 1 lead to exploring the accum = accum + 1 line for every loop iteration. 
+
+    d) 
+    void sum(unsigned * flags) {
+        if (flags[0] > 1) { return; }
+        if (flags[1] > 1) { return; }
+        if (flags[2] > 1) { return; }
+        if (flags[3] > 1) { return; }
+        if (flags[4] > 1) { return; }
+        if (flags[5] > 1) { return; }
+        if (flags[6] > 1) { return; }
+        if (flags[7] > 1) { return; }
+        unsigned accum = 0;
+        if (flags[0] == 1) { accum = accum + 1; }
+        if (flags[1] == 1) { accum = accum + 1; }
+        if (flags[2] == 1) { accum = accum + 1; }
+        if (flags[3] == 1) { accum = accum + 1; }
+        if (flags[4] == 1) { accum = accum + 1; }
+        if (flags[5] == 1) { accum = accum + 1; }
+        if (flags[6] == 1) { accum = accum + 1; }
+        if (flags[7] == 1) { accum = accum + 1; }
+        assert (accum != 8);
+    }
+
+    Fully unrolling a loop while preserving the original semantics of the target program is a simple way to guide the coverage based mutation towards making changes to the input faster. The fuzzer sees the new lines as all completely new pieces of coverage to explore.
+
+
+Q3) The term anti-fuzzing is sometimes used to refer to methods that make it harder to fuzz a system.
+Some anti-fuzzing strategies are provided at this link: https://research.nccgroup.com/2014/01/
+02/introduction-to-anti-fuzzing-a-defence-in-depth-aid/
+Before following the link, think of some mechanisms that could be used in deployment to make it hard for
+an attacker to find vulnerabilities in a system via fuzzing.
+Suggest a semantics-preserving rewrite of the second loop in the example of Question 2 that would make it
+harder for a coverage-guided fuzzer such as AFL to find the assertion failure.
+
+Well obviously without the source code or any intermediate representation, the attacker will only be able to instrument binaries which is a lot harder to instrument with coverage collection code. 
+
+There can also be code to detect things like fuzzing. In networked systems this is particularly easy, as multiple requests/inputs from a source can be banned from further inputs.
+
+Using things like atomic operations and compare & swaps instead of loops could also be a good idea? Considering the second loop of Q2:
+    
+    unsigned accum = 0;
+    accum = read_8_bytes_from_starting_Address_(* flags);
+    assert(accum != 8);
+
+
+
+
+Q5) In random differential testing, pioneered by tools such as Csmith, we search for compiler bugs by
+generating large random programs that do not exhibit undefined behaviour, and use the programs to cross-check
+multiple compilers. Result mismatches indicate compiler bugs.
+Give two reasons why, for a particular set of compilers, it may be impossible to find a particular bug using
+random differential testing.
+
+It can be the case that a compiler is affected by several bugs, all of which could be found via random
+differential testing in principle. However, it is often the case that in practice it is not possible to find more than
+one or two of the bugs. Discuss why this might be the case.
+
+        For random program generation, the probability of finding a particular bug is difficult to near impossible as there is no way of directing generation of the code converge on a specific portion of the compiler code.
+
+
+    Well, cynically, if multiple compilers are incorrect in their implementation, the bug will persist in all of outputs and the "differential" comparison will fail!
+
+    Most importantly, since CSmith guarentees generation of code without UB, it decreases the likelihood of generating programs which could actually crash the compiler. Things like divisions or memory access are wrapped with error detection code like div 0 or unbounded access for example, and will not allow the compiler to work on dangerous code. This reduces the scope of miscompilation. 
+
+    Compiler code is generally well documented, tested and written. Within the types of possible bugs, there are more subtle and easy to detect bugs. There is the issue that the more subtle bug is also triggered and masked when we trigger an easier to catch bug. This subtle bug remains hidden as the result of the differential testing between compilers.  
+
+
+
+
