@@ -1,11 +1,12 @@
 ## Now (max 2)
 - Barroso — *The Datacenter as a Computer*
-- Hennessy & Patterson 
+- The twits
 
 ## Next (max 5)
-- SemiAnalysis — datacenter power series
+- Grover- high output management.
+- Ego is the enemy
+- How to win friends and influence people
 
 ## Someday
-- Grove — High Output Management
 - Taleb — Antifragile
 - Koomey — energy efficiency papers

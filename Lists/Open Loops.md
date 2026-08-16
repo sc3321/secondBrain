@@ -1,5 +1,16 @@
 
-- [ ] Call back bills company
-- [ ] Read step 4
-- [ ] ..
-- [ ] ..
+- [ ] Step 4 inventory. 
+- [ ] Get credit card- AMEX.
+- [ ] Linkedin update.
+- [ ] Github update.
+- [ ] Spoorthi gift.
+- [ ] Book mowgli.
+- [ ] Rahat coffee.
+- [ ] Car seat configuration.
+- [ ] Car wash.
+- [ ] Car features familiarisation.
+- [ ] Car tyre and safety lookups.
+- [ ] PC interior cleanup.
+- [ ] Rhinos homegroup commitment.
+- [ ] Something for Minu.
+- [ ] Financial spreadsheet.
