@@ -1,6 +1,6 @@
 ## Now (max 2)
-- Barroso — *The Datacenter as a Computer*
-- The twits
+- Barroso — *The Datacenter as a Computer*.
+- The Twits.
 
 ## Next (max 5)
 - Grover- high output management.

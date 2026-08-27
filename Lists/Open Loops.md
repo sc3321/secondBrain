@@ -1,14 +1,13 @@
 
-- [ ] Step 4 inventory. 
-- [ ] Get credit card- AMEX.
+- [ ] Step 4 inventory resentment 
+- [x] Get credit card- AMEX.
+- [ ] Reach out to Paul.
+- [x] Reach out to Frank.
 - [ ] Linkedin update.
-- [ ] Github update.
-- [ ] Spoorthi gift.
-- [ ] Book mowgli.
-- [ ] Rahat coffee.
-- [ ] Car seat configuration.
-- [ ] Car wash.
-- [ ] Car features familiarisation.
+- [x] Github update.
+- [x] Book mowgli.
+- [x] Rahat coffee.
+- [x] Car features familiarisation.
 - [ ] Car tyre and safety lookups.
 - [ ] PC interior cleanup.
 - [ ] Rhinos homegroup commitment.
