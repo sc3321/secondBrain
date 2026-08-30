@@ -1,13 +1,9 @@
-
-- [ ] Step 4 inventory resentment 
-- [x] Get credit card- AMEX.
 - [ ] Reach out to Paul.
-- [x] Reach out to Frank.
 - [ ] Linkedin update.
-- [x] Github update.
-- [x] Book mowgli.
-- [x] Rahat coffee.
-- [x] Car features familiarisation.
+- [ ] Car licence plate update.
+- [ ] Sort out direct debits.
+- [ ] Fill up tyre air.
+- [ ] Finalise graduation.
 - [ ] Car tyre and safety lookups.
 - [ ] PC interior cleanup.
 - [ ] Rhinos homegroup commitment.
