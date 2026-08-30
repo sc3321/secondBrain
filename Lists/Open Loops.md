@@ -3,6 +3,7 @@
 - [ ] Car licence plate update.
 - [ ] Sort out direct debits.
 - [ ] Fill up tyre air.
+- [ ] REACH registration.
 - [ ] Finalise graduation.
 - [ ] Car tyre and safety lookups.
 - [ ] PC interior cleanup.
